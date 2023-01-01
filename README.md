@@ -27,6 +27,8 @@ However, there isn't an one-click option to do the same.
 
     As a workaround, we need to click the toggle twice to show (focus) on the active terminal first (and once more if we need to hide)
 
+-   This does not work well if the Terminal is created in the Editor Area (`Terminal: Create New Terminal in Editor Area`) instead of Panel (default)
+
 -   Tests - There aren't any tests right now
 
 If you come across any other issue, or if you could improve this extension please feel free to raise a Bug/PR
