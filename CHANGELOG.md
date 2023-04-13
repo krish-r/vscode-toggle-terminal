@@ -17,3 +17,9 @@
 ### Changed
 
 -   Updated Known Limitation in README
+
+## [0.0.3] - 2023-04-13
+
+### Changed
+
+-   bump @vscode/vsce - dev dependency

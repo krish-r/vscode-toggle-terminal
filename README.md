@@ -44,4 +44,13 @@ If you come across any other issue, or if you could improve this extension pleas
 
 ### 0.0.1
 
-Initial Release
+-   Initial Release
+
+### 0.0.2
+
+-   Added CI Pipeline
+-   Updated Known Limitation in README
+
+### 0.0.3
+
+-   bump @vscode/vsce - dev dependency
