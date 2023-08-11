@@ -18,8 +18,13 @@ export function activate({ subscriptions }: vscode.ExtensionContext) {
         })),
     );
 
+    const conf = vscode.workspace.getConfiguration("vscode-toggle-terminal");
+    const alignment =
+        conf.get<string>("alignment") === "right"
+            ? vscode.StatusBarAlignment.Right
+            : vscode.StatusBarAlignment.Left;
     statusBarItem = vscode.window.createStatusBarItem(
-        vscode.StatusBarAlignment.Left,
+        alignment,
         0,
     );
     statusBarItem.command = commandId;

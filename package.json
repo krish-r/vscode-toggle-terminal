@@ -3,7 +3,7 @@
     "displayName": "Toggle Terminal",
     "publisher": "krish-r",
     "description": "This extension adds a toggle icon (shortcut) in the status bar.",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "engines": {
         "vscode": "^1.74.0"
     },
@@ -27,7 +27,26 @@
         "terminal"
     ],
     "main": "./out/extension.js",
-    "contributes": {},
+    "contributes": {
+        "configuration": {
+            "title": "Terminal Toggle",
+            "properties": {
+                "vscode-toggle-terminal.alignment": {
+                    "description": "Where to align the toggle button",
+                    "type": "string",
+                    "default": "left",
+                    "enum": [
+                        "left",
+                        "right"
+                    ],
+                    "enumDescriptions": [
+                        "Aligns the toggle button to the left of the status bar",
+                        "Aligns the toggle button to the right of the status bar"
+                    ]
+                }
+            }
+        }
+    },
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
