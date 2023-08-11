@@ -54,3 +54,7 @@ If you come across any other issue, or if you could improve this extension pleas
 ### 0.0.3
 
 -   bump @vscode/vsce - dev dependency
+
+### 0.0.4
+
+-   Added setting for alignment.
