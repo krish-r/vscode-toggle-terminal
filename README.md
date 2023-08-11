@@ -17,6 +17,16 @@ However, there isn't an one-click option to do the same.
 -   Click the PROBLEMS view toggle to open the Panel and select Terminal tab`
 -   Toggle PANEL (`Ctrl + J`) (and optionally select Terminal tab if its not on focus)
 
+## Setting(s)
+
+The following setting(s) can be specified in your `settings.json`
+
+| Setting                            | Value(s)                  |                                                                                |
+| ---------------------------------- | ------------------------- | ------------------------------------------------------------------------------ |
+| `vscode-toggle-terminal.alignment` | `left` (default), `right` | Thanks to [@thumperward](https://github.com/thumperward) for the contribution. |
+
+(Please Restart VS Code for the changes to take effect)
+
 ## Known Issues/Limitations
 
 -   Clicking on the toggle does not show/hide the terminal -
