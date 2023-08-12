@@ -43,6 +43,11 @@
                         "Aligns the toggle button to the left of the status bar",
                         "Aligns the toggle button to the right of the status bar"
                     ]
+                },
+                "vscode-toggle-terminal.priority": {
+                    "description": "Priority of the toggle button position in the status bar. (Higher values mean the toggle button would be shown more to the left.)",
+                    "type": "number",
+                    "default": 0
                 }
             }
         }

@@ -5,7 +5,8 @@ let disposable: vscode.Disposable;
 let isTerminalVisible = false;
 
 export function activate({ subscriptions }: vscode.ExtensionContext) {
-    const commandId = "vscode-toggle-terminal.toggleTerminal";
+    const extensionName = "vscode-toggle-terminal";
+    const commandId = `${extensionName}.toggleTerminal`;
 
     subscriptions.push(
         (disposable = vscode.commands.registerCommand(commandId, () => {
@@ -18,15 +19,14 @@ export function activate({ subscriptions }: vscode.ExtensionContext) {
         })),
     );
 
-    const conf = vscode.workspace.getConfiguration("vscode-toggle-terminal");
+    const conf = vscode.workspace.getConfiguration(extensionName);
     const alignment =
         conf.get<string>("alignment") === "right"
             ? vscode.StatusBarAlignment.Right
             : vscode.StatusBarAlignment.Left;
-    statusBarItem = vscode.window.createStatusBarItem(
-        alignment,
-        0,
-    );
+    const priority = conf.get<number>("priority");
+
+    statusBarItem = vscode.window.createStatusBarItem(alignment, priority);
     statusBarItem.command = commandId;
     statusBarItem.name = "Toggle Terminal";
     statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
