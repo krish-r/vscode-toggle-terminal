@@ -26,8 +26,6 @@ The following setting(s) can be specified in your `settings.json`
 | `vscode-toggle-terminal.alignment` | Where to align the toggle button                                                                                                  | `left` (default), `right` | Thanks to [@thumperward](https://github.com/thumperward) for the contribution. |
 | `vscode-toggle-terminal.priority`  | Priority of the toggle button position in the status bar. (Higher values mean the toggle button would be shown more to the left.) | `0` (default)             |                                                                                |
 
-(Please Restart VS Code for the changes to take effect)
-
 ## Known Issues/Limitations
 
 -   Clicking on the toggle does not show/hide the terminal -
@@ -69,3 +67,8 @@ If you come across any other issue, or if you could improve this extension pleas
 ### 0.0.4
 
 -   Added setting for alignment.
+
+### 0.0.5
+
+-   Added setting for priority.
+-   Added notification to reload on configuration changes.

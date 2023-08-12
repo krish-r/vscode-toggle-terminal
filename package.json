@@ -2,8 +2,8 @@
     "name": "vscode-toggle-terminal",
     "displayName": "Toggle Terminal",
     "publisher": "krish-r",
-    "description": "This extension adds a toggle icon (shortcut) in the status bar.",
-    "version": "0.0.4",
+    "description": "This extension adds a terminal toggle icon (shortcut) in the status bar.",
+    "version": "0.0.5",
     "engines": {
         "vscode": "^1.74.0"
     },
@@ -23,6 +23,7 @@
     ],
     "keywords": [
         "terminal toggle",
+        "toggle terminal",
         "toggle",
         "terminal"
     ],

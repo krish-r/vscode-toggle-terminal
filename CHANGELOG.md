@@ -29,3 +29,10 @@
 ### Changed
 
 -   Added setting for alignment.
+
+## [0.0.5] - 2023-08-12
+
+### Added
+
+-   Added setting for priority.
+-   Added notification to reload on configuration changes.

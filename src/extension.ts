@@ -47,6 +47,14 @@ export function activate({ subscriptions }: vscode.ExtensionContext) {
     vscode.window.onDidCloseTerminal(() => {
         statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
     });
+
+    vscode.workspace.onDidChangeConfiguration(
+        (event: vscode.ConfigurationChangeEvent) => {
+            if (event.affectsConfiguration(`${extensionName}`)) {
+                reloadWindow();
+            }
+        },
+    );
 }
 
 export function deactivate({ subscriptions }: vscode.ExtensionContext) {
@@ -68,4 +76,19 @@ function toggleTerminal() {
         }
         isTerminalVisible = true;
     }
+}
+
+function reloadWindow() {
+    const msg =
+        "Toggle Terminal (Extension) configuration change detected - Please Reload.";
+    const action = "Reload Window";
+    const alternateAction = "Dismiss";
+
+    vscode.window
+        .showInformationMessage(msg, action, alternateAction)
+        .then((selectedAction) => {
+            if (selectedAction === action) {
+                vscode.commands.executeCommand("workbench.action.reloadWindow");
+            }
+        });
 }
