@@ -6,7 +6,7 @@ This extension adds a toggle icon (shortcut) in the status bar.
 
 ## Features
 
-This extension tries to address an [open feature request](https://github.com/microsoft/vscode/issues/115657) by adding a toggle icon (shortcut) in the status bar.
+This extension tries to address a [closed feature request](https://github.com/microsoft/vscode/issues/115657) by adding a toggle icon (shortcut) in the status bar.
 
 Following are the various options available to open/toggle the terminal.
 However, there isn't an one-click option to do the same.
@@ -25,6 +25,7 @@ The following setting(s) can be specified in your `settings.json`
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------ |
 | `vscode-toggle-terminal.alignment` | Where to align the toggle button                                                                                                  | `left` (default), `right` | Thanks to [@thumperward](https://github.com/thumperward) for the contribution. |
 | `vscode-toggle-terminal.priority`  | Priority of the toggle button position in the status bar. (Higher values mean the toggle button would be shown more to the left.) | `0` (default)             |                                                                                |
+| `vscode-toggle-terminal.listNames` | Display terminal names on hover (tooltip)                                                                                         | `false` (default)         | (**Experimental** - values might not update in some cases due to API limitations, requires interaction with the toggle to update) |
 
 ## Known Issues/Limitations
 
@@ -72,3 +73,7 @@ If you come across any other issue, or if you could improve this extension pleas
 
 -   Added setting for priority.
 -   Added notification to reload on configuration changes.
+
+### 0.0.6
+
+ - Added setting to display terminal name on hover (tooltip).

@@ -1,3 +1,4 @@
+import * as os from "os";
 import * as vscode from "vscode";
 
 let statusBarItem: vscode.StatusBarItem;
@@ -25,27 +26,33 @@ export function activate({ subscriptions }: vscode.ExtensionContext) {
             ? vscode.StatusBarAlignment.Right
             : vscode.StatusBarAlignment.Left;
     const priority = conf.get<number>("priority");
+    const listNames = conf.get<boolean>("listNames") || false;
 
     statusBarItem = vscode.window.createStatusBarItem(alignment, priority);
     statusBarItem.command = commandId;
     statusBarItem.name = "Toggle Terminal";
     statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
-    statusBarItem.tooltip = "Toggle Terminal";
+    statusBarItem.tooltip = listTerminalNames(listNames);
     statusBarItem.show();
 
     subscriptions.push(statusBarItem);
 
     vscode.window.onDidChangeTerminalState(() => {
         statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
+        statusBarItem.tooltip = listTerminalNames(listNames);
     });
     vscode.window.onDidChangeActiveTerminal(() => {
         statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
+        statusBarItem.tooltip = listTerminalNames(listNames);
     });
-    vscode.window.onDidOpenTerminal(() => {
+    vscode.window.onDidOpenTerminal(async () => {
         statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
+        await sleep(500);
+        statusBarItem.tooltip = listTerminalNames(listNames);
     });
     vscode.window.onDidCloseTerminal(() => {
         statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
+        statusBarItem.tooltip = listTerminalNames(listNames);
     });
 
     vscode.workspace.onDidChangeConfiguration(
@@ -91,4 +98,29 @@ function reloadWindow() {
                 vscode.commands.executeCommand("workbench.action.reloadWindow");
             }
         });
+}
+
+function listTerminalNames(enabled: boolean) {
+    let defaultValue = "Toggle Terminal";
+    if (!enabled) {
+        return defaultValue;
+    }
+
+    let terminals = vscode.window.terminals;
+    if (terminals.length === 0) {
+        return defaultValue;
+    }
+
+    return new vscode.MarkdownString(
+        terminals
+            .map((t) => t.name)
+            .filter((name) => name.trim() !== "")
+            .map((name) => `$(terminal) ${name}`)
+            .join(`${os.EOL}${os.EOL}`),
+        true,
+    );
+}
+
+async function sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }

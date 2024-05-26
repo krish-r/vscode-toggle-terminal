@@ -36,3 +36,9 @@
 
 -   Added setting for priority.
 -   Added notification to reload on configuration changes.
+
+## [0.0.6] - 2024-05-27
+
+### Added
+
+- Added setting to display terminal name on hover (tooltip).

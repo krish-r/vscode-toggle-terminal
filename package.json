@@ -49,6 +49,11 @@
                     "description": "Priority of the toggle button position in the status bar. (Higher values mean the toggle button would be shown more to the left.)",
                     "type": "number",
                     "default": 0
+                },
+                "vscode-toggle-terminal.listNames": {
+                    "description": "Display terminal names on hover (tooltip).",
+                    "type": "boolean",
+                    "default": false
                 }
             }
         }
