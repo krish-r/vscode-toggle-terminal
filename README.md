@@ -74,6 +74,6 @@ If you come across any other issue, or if you could improve this extension pleas
 -   Added setting for priority.
 -   Added notification to reload on configuration changes.
 
-### 0.0.6
+### 0.0.6, 0.0.7
 
  - Added setting to display terminal name on hover (tooltip).

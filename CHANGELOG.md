@@ -42,3 +42,10 @@
 ### Added
 
 - Added setting to display terminal name on hover (tooltip).
+
+## [0.0.7] - 2024-05-27
+
+### Added
+
+- Added setting to display terminal name on hover (tooltip).
+

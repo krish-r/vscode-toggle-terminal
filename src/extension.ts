@@ -4,6 +4,7 @@ import * as vscode from "vscode";
 let statusBarItem: vscode.StatusBarItem;
 let disposable: vscode.Disposable;
 let isTerminalVisible = false;
+let listNames = false;
 
 export function activate({ subscriptions }: vscode.ExtensionContext) {
     const extensionName = "vscode-toggle-terminal";
@@ -26,33 +27,33 @@ export function activate({ subscriptions }: vscode.ExtensionContext) {
             ? vscode.StatusBarAlignment.Right
             : vscode.StatusBarAlignment.Left;
     const priority = conf.get<number>("priority");
-    const listNames = conf.get<boolean>("listNames") || false;
+    listNames = conf.get<boolean>("listNames") || false;
 
     statusBarItem = vscode.window.createStatusBarItem(alignment, priority);
     statusBarItem.command = commandId;
     statusBarItem.name = "Toggle Terminal";
     statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
-    statusBarItem.tooltip = listTerminalNames(listNames);
+    statusBarItem.tooltip = listTerminalNames();
     statusBarItem.show();
 
     subscriptions.push(statusBarItem);
 
     vscode.window.onDidChangeTerminalState(() => {
         statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
-        statusBarItem.tooltip = listTerminalNames(listNames);
+        statusBarItem.tooltip = listTerminalNames();
     });
     vscode.window.onDidChangeActiveTerminal(() => {
         statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
-        statusBarItem.tooltip = listTerminalNames(listNames);
+        statusBarItem.tooltip = listTerminalNames();
     });
     vscode.window.onDidOpenTerminal(async () => {
         statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
         await sleep(500);
-        statusBarItem.tooltip = listTerminalNames(listNames);
+        statusBarItem.tooltip = listTerminalNames();
     });
     vscode.window.onDidCloseTerminal(() => {
         statusBarItem.text = `$(terminal) ${vscode.window.terminals.length}`;
-        statusBarItem.tooltip = listTerminalNames(listNames);
+        statusBarItem.tooltip = listTerminalNames();
     });
 
     vscode.workspace.onDidChangeConfiguration(
@@ -83,6 +84,7 @@ function toggleTerminal() {
         }
         isTerminalVisible = true;
     }
+    statusBarItem.tooltip = listTerminalNames();
 }
 
 function reloadWindow() {
@@ -100,9 +102,9 @@ function reloadWindow() {
         });
 }
 
-function listTerminalNames(enabled: boolean) {
+function listTerminalNames() {
     let defaultValue = "Toggle Terminal";
-    if (!enabled) {
+    if (!listNames) {
         return defaultValue;
     }
 
