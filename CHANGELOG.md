@@ -49,3 +49,8 @@
 
 - Added setting to display terminal name on hover (tooltip).
 
+## [0.0.8] - 2025-03-29
+
+### Changed
+
+- bump dev-dependencies, actions.yml
