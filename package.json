@@ -67,8 +67,8 @@
         "deploy": "vsce publish"
     },
     "devDependencies": {
-        "@types/mocha": "^10.0.1",
-        "@types/node": "16.x",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "20.x",
         "@types/vscode": "^1.98.0",
         "@typescript-eslint/eslint-plugin": "^8.28.0",
         "@typescript-eslint/parser": "^8.28.0",
