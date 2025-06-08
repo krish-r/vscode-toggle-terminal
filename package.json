@@ -69,13 +69,13 @@
     "devDependencies": {
         "@types/mocha": "^10.0.10",
         "@types/node": "22.x",
-        "@types/vscode": "^1.99.1",
-        "@typescript-eslint/eslint-plugin": "^8.31.1",
+        "@types/vscode": "^1.100.0",
+        "@typescript-eslint/eslint-plugin": "^8.33.0",
         "@typescript-eslint/parser": "^8.31.1",
         "@vscode/test-electron": "^2.5.2",
-        "@vscode/vsce": "^3.3.2",
-        "eslint": "^9.25.1",
-        "mocha": "^11.1.0",
+        "@vscode/vsce": "^3.4.2",
+        "eslint": "^9.28.0",
+        "mocha": "^11.5.0",
         "typescript": "^5.8.3"
     }
 }
