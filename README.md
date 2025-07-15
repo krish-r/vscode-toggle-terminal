@@ -81,3 +81,7 @@ If you come across any other issue, or if you could improve this extension pleas
 ### 0.0.8
 
 - bump dev-dependencies, actions.yml
+
+### 0.0.9
+
+- Publish extension to Open VSX Registry

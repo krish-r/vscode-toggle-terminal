@@ -3,9 +3,9 @@
     "displayName": "Toggle Terminal",
     "publisher": "krish-r",
     "description": "This extension adds a terminal toggle icon (shortcut) in the status bar.",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "engines": {
-        "vscode": "^1.98.0"
+        "vscode": "^1.100.0"
     },
     "icon": "images/icon.png",
     "repository": {
@@ -64,7 +64,7 @@
         "watch": "tsc -watch -p ./",
         "pretest": "npm run compile && npm run lint",
         "lint": "eslint src --ext ts",
-        "deploy": "vsce publish"
+        "deploy": "vsce publish && ovsx publish"
     },
     "devDependencies": {
         "@types/mocha": "^10.0.10",
@@ -76,6 +76,7 @@
         "@vscode/vsce": "^3.4.2",
         "eslint": "^9.28.0",
         "mocha": "^11.5.0",
+        "ovsx": "^0.10.5",
         "typescript": "^5.8.3"
     }
 }

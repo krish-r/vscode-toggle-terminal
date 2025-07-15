@@ -54,3 +54,9 @@
 ### Changed
 
 - bump dev-dependencies, actions.yml
+
+## [0.0.9] - 2025-07-15
+
+### Added
+
+- Publish extension to Open VSX Registry
