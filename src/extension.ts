@@ -15,7 +15,7 @@ export function activate({ subscriptions }: vscode.ExtensionContext) {
             // Create a terminal if it does not already exist
             if (vscode.window.terminals.length === 0) {
                 isTerminalVisible = false;
-                vscode.window.createTerminal();
+                vscode.commands.executeCommand("workbench.action.terminal.new");
             }
             toggleTerminal();
         })),

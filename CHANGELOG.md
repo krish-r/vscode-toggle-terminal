@@ -60,3 +60,9 @@
 ### Added
 
 - Publish extension to Open VSX Registry
+
+## [0.0.10] - 2026-03-23
+
+### Changed
+
+- Create new Terminal using `executeCommand`.
